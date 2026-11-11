@@ -143,3 +143,60 @@ details p{margin:.7em 0 0;color:var(--muted)}
 .wa-float svg{width:24px;height:24px}
 @media (max-width:520px){.wa-float span{display:none}.wa-float{padding:14px}}
 .brand-logo{width:44px;height:44px;border-radius:50%}
+
+/* ---------- richer layout ---------- */
+.hero-split{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 68px);max-height:860px;background:var(--plum-deep);color:#f4ecf3}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:64px clamp(22px,6vw,90px)}
+.hero-copy h1{color:#fff;font-size:clamp(3rem,6.5vw,5.4rem)}
+.hero-copy h1 em{font-style:italic;color:var(--gold-soft)}
+.hero-copy .lead{font-size:1.15rem;color:#d9cbdb;max-width:32em}
+.hero-photo{background:center 30%/cover no-repeat;position:relative;animation:slowzoom 18s ease-out both}
+.hero-photo::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--plum-deep) 0%,rgba(28,13,32,0) 30%)}
+@keyframes slowzoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero-split{overflow:hidden}
+@media (max-width:860px){.hero-split{grid-template-columns:1fr;max-height:none;min-height:0}.hero-photo{min-height:62vh;order:-1}.hero-photo::before{background:linear-gradient(0deg,var(--plum-deep) 0%,rgba(28,13,32,0) 40%)}}
+
+.marquee{background:var(--gold);color:var(--plum-deep);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:var(--serif);font-size:1.25rem}
+.marquee-track{display:inline-block;animation:marq 40s linear infinite}
+.marquee span{margin:0 26px}.marquee span::after{content:"✦";margin-left:52px;font-size:.8rem;vertical-align:middle;opacity:.6}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.wing-img{padding:0;text-decoration:none;color:inherit;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.wing-img:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(43,21,48,.14)}
+.wing-photo{height:280px;background:center/cover no-repeat;transition:transform .6s}
+.wing-img:hover .wing-photo{transform:scale(1.04)}
+.wing-body{padding:32px 34px 36px;display:flex;flex-direction:column;flex:1}
+.wing-body .btn{margin-top:auto;align-self:flex-start}
+
+.card-icon .ic{display:block;width:46px;height:46px;color:var(--gold);margin-bottom:14px}
+.card-icon .ic svg{width:100%;height:100%}
+
+.about-band{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.collage{position:relative;height:560px}
+.collage .c1{position:absolute;left:0;top:0;width:68%;height:86%;background:center 20%/cover;border:1px solid var(--line)}
+.collage .c2{position:absolute;right:0;bottom:0;width:48%;height:58%;background:center/cover;border:8px solid var(--paper);box-shadow:0 20px 40px rgba(0,0,0,.15)}
+.about-band .quals{color:var(--muted)}
+@media (max-width:860px){.about-band{grid-template-columns:1fr}.collage{height:440px}}
+
+.facilities-band{background-size:cover;background-position:center}
+
+.dims{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:30px;border-top:1px solid var(--line)}
+.dim{padding:30px 26px 10px;border-right:1px solid var(--line)}
+.dim:last-child{border-right:0}
+.dim span{font-family:var(--serif);font-size:2.6rem;color:var(--gold);line-height:1}
+.dim h3{margin-top:14px}
+.dim p{color:var(--muted)}
+@media (max-width:860px){.dims{grid-template-columns:1fr 1fr}.dim:nth-child(2){border-right:0}}
+
+.insta-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.insta-grid a{aspect-ratio:1;background:center 25%/cover;position:relative;overflow:hidden}
+.insta-grid a::after{content:"";position:absolute;inset:0;background:rgba(43,21,48,0);transition:background .3s}
+.insta-grid a:hover::after{background:rgba(43,21,48,.35)}
+@media (max-width:700px){.insta-grid{grid-template-columns:1fr 1fr}}
+
+.page-hero.has-img{background-size:cover;background-position:center;padding:110px 0 90px}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.marquee-track,.hero-photo{animation:none}}
